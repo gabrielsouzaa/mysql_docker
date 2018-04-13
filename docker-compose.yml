@@ -1,0 +1,18 @@
+version: '3.2'
+
+volumes:
+    gabs_data_mysql:
+        driver: local
+
+services:
+  mysql:
+          container_name: gabs_mysql
+          volumes:
+              - gabs_data_mysql:/var/lib/mysql
+          image: mysql
+          ports:
+              - "3306:3306"
+          environment:
+              MYSQL_ROOT_PASSWORD: root
+              MYSQL_USER: root
+              MYSQL_PASSWORD: root
